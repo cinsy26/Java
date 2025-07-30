@@ -1,34 +1,30 @@
+import java.util.*;
 import java.io.*;
-import java.util.StringTokenizer;
 
-public class Main {
-
-    public static void main(String[] args) throws IOException {
-
+public class Main{
+    public static void main(String[] args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String str1 = br.readLine();
+        int size = Integer.parseInt(str1);
 
-        int N = Integer.parseInt(br.readLine());
-        int count = 0;
-        int[] arr = new int[N];
+        String str2 = br.readLine();
+        String[] str2Array = str2.split(" "); // 문자열을 공백 기준으로 나눔
+        int[] array = new int[size]; // 배열 선언 및 생성
 
-        StringTokenizer st = new StringTokenizer(br.readLine());;
-
-        for(int i = 0; i < N; i++){
-            arr[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < size; i++) {
+            array[i] = Integer.parseInt(str2Array[i]); // 문자열을 int로 변환 후 배열에 저장
         }
 
-        int b = Integer.parseInt(br.readLine());
-
-        for(int j = 0; j < arr.length; j++){
-            if(b == arr[j]) {
-                count++;
+        String str3 = br.readLine();
+        int v = Integer.parseInt(str3);
+        
+        int answer = 0;
+        
+        for(int i = 0; i< size; i++){
+            if(array[i]==v){
+                answer = answer + 1;
             }
         }
-        System.out.println(count);
-
-        br.close();
-        bw.flush();
-        bw.close();
+        System.out.println(answer);
     }
 }
